@@ -1,7 +1,5 @@
 package com.example.biopulse_group4.Model;
 
-import package com.biopulse.model;
-
 import java.time.LocalDate;
 
 public class Sighting {
