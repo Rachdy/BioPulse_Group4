@@ -1,14 +1,17 @@
-package com.example.biopulse_group4.controller;
+package com.example.biopulse_group4.Model;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+public class Bird extends Animal {
+    private double wingspan;
+    private boolean isMigratory;
 
-public class Bird {
-    @FXML
-    private Label welcomeText;
+    public Bird(String speciesID, String speciesName, String taxonomicClass, String habitatRequirements, String conservationStatus, double wingspan, boolean isMigratory) {
+        super(speciesID, speciesName, taxonomicClass, habitatRequirements, conservationStatus);
+        this.wingspan = wingspan;
+        this.isMigratory = isMigratory;
+    }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    @Override
+    public void displayInfo() {
+        System.out.println("Bird Name: " + speciesName + " | Wingspan: " + wingspan + "m | Migratory: " + isMigratory);
     }
 }
