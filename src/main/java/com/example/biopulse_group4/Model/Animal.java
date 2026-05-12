@@ -7,26 +7,6 @@ public abstract class Animal {
     protected String habitat;
     protected String conservationStatus;
 
-    public void setAnimalID(String animalID) {
-        this.animalID = animalID;
-    }
-
-    public void setSpeciesName(String speciesName) {
-        this.speciesName = speciesName;
-    }
-
-    public void setTaxoGroup(String taxoGroup) {
-        this.taxoGroup = taxoGroup;
-    }
-
-    public void setHabitat(String habitat) {
-        this.habitat = habitat;
-    }
-
-    public void setConservationStatus(String conservationStatus) {
-        this.conservationStatus = conservationStatus;
-    }
-
     public Animal(String animalID, String speciesName, String taxoGroup, String habitat, String conservationStatus) {
         this.animalID = animalID;
         this.speciesName = speciesName;
@@ -36,25 +16,5 @@ public abstract class Animal {
     }
 
     public abstract void displayInfo();
-
-
-    public String getAnimalID() {
-        return animalID;
-    }
-
-    public String getSpeciesName() {
-        return speciesName;
-    }
-
-    public String getTaxoGroup() {
-        return taxoGroup;
-    }
-
-    public String getHabitat() {
-        return habitat;
-    }
-
-    public String getConservationStatus() {
-        return conservationStatus;
-    }
+    public String getSpeciesName() { return speciesName; }
 }
