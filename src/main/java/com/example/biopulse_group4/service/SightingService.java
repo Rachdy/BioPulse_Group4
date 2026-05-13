@@ -23,11 +23,25 @@ public class SightingService {
     }
 
     public ArrayList<Sighting> searchSightings(String location) {
-        return sightings;
+        ArrayList<Sighting> results = new ArrayList<>();
+        for (int i=0; i< sightings.size();i++){
+            Sighting foundSighting = sightings.get(i);
+            if (foundSighting.getLocation().equals(location)){
+                results.add(foundSighting);
+            }
+        }
+    return results;
     }
 
     public ArrayList<Sighting> searchSightingsByDate(LocalDate date) {
-        return sightings;
+        ArrayList<Sighting> results = new ArrayList<>();
+        for (int i=0; i< sightings.size();i++){
+            Sighting foundSighting = sightings.get(i);
+            if (foundSighting.getDate().equals(date)){
+                results.add(foundSighting);
+            }
+        }
+        return results;
     }
 
     public ArrayList<Sighting> searchSightingsByAnimalName(String animalName) {
