@@ -19,6 +19,7 @@ public class SightingService {
 
     // Return all sightings
     public ArrayList<Sighting> getAllSightings() {
+
         return sightings;
     }
 
@@ -45,19 +46,58 @@ public class SightingService {
     }
 
     public ArrayList<Sighting> searchSightingsByAnimalName(String animalName) {
-        return sightings;
+
+        ArrayList<Sighting> results = new ArrayList<>();
+
+        for (int i = 0; i < sightings.size(); i++) {
+            Sighting foundSighting = sightings.get(i);
+            if (foundSighting.getAnimal().getSpeciesName().equals(animalName)) {
+                results.add(foundSighting);
+            }
+        }
+
+        return results;
     }
 
-    public ArrayList<Sighting> filterSightingsByCount(int minCount) {
-        return sightings;
+    //Salma/Reda ergänzen von public int getCount() {
+    //    return count;
+    //
+    /*public ArrayList<Sighting> filterSightingsByCount(int minCount) {
+        ArrayList<Sighting> results = new ArrayList<>();
+        for (int i = 0; i < sightings.size();i++) {
+            Sighting foundSighting = sightings.get(i);
+            if (foundSighting.getCount() >= minCount) {
+                results.add(foundSighting);
+            }
+        }
+        return results;
     }
-
+*/
     public ArrayList<Sighting> sortSightingsByDate() {
+        for (int i = 0; i< sightings.size();i++){
+            for ( int j = i+1 ; j < sightings.size();j++){
+            Sighting firstSighting = sightings.get(i);
+            Sighting secondSighting = sightings.get(j);
+            if (firstSighting.getDate().isAfter((secondSighting.getDate()))) {
+                sightings.set(i, secondSighting);
+                sightings.set(j, firstSighting);
+            }
+
+            }
+        }
         return sightings;
     }
 
-    public ArrayList<Sighting> filterSightings() {
-        return sightings;
+    public ArrayList<Sighting> filterSightingsByConservationStatus(String status) {
+    ArrayList<Sighting> results = new ArrayList<>();
+        for (int i = 0; i< sightings.size();i++) {
+        Sighting foundSighting = sightings.get(i);
+        if (foundSighting.getAnimal().getConservationStatus().equals(status)) {
+            results.add(foundSighting);
+        }
+
+    }
+        return results;
     }
 
     public boolean updateSighting(Sighting sighting) {
